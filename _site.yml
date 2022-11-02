@@ -5,11 +5,13 @@ navbar:
   right:
     - text: "Experience"
       href: Experience.html
+    - text: "Plotly"
+      href: plotly.html
     - icon: fa-envelope fa-lg
       href: mailto:<sm5134@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/Sneha846/
-    - icon: fa-brands fa-linkedin-in
+    - icon: fa-brands fa-linkedin
       href: https://www.linkedin.com/in/sneha-mehta846/
 output:
   html_document:

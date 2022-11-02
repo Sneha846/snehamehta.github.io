@@ -1,0 +1,41 @@
+---
+title: "Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup}
+library(p8105.datasets)
+library(tidyverse)
+library(plotly)
+```
+
+## Loading Data
+```{r}
+data("ny_noaa")
+
+noaa = ny_noaa %>% 
+  separate(date, into = c("year", "month", "day"), sep = "-", convert = TRUE) %>% 
+  mutate(tmax = as.numeric(tmax)/10, 
+         tmin = as.numeric(tmin)/10,
+         prcp = prcp/10) %>% 
+  sample_n(10000)
+
+#years with top 5 highest temps vs years with top 5 lowest temps
+#highest snowdepth
+```
+
+## Plotly Plots
+
+### Scatterplot
+```{r}
+noaa %>% 
+  mutate(text_label = str_c("Station ID:", id)) %>% 
+  plot_ly(x = ~tmin, y = ~tmax, color = ~year, text = ~text_label, alpha = 0.5, type = "scatter", mode = "markers")
+```
+
+### Barplot
+
+
