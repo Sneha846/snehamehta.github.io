@@ -1,0 +1,32 @@
+---
+title: "What I Do"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+### Academic Experience
+
+##### University of California, Berkeley
+* Public Health, Bachelor of Arts
+* Minor: Global Poverty & Practice
+
+##### Columbia University
+* Biostatistics, Master of Public Health
+* Certificate: Molecular Epidemiology
+
+### Professional Experience
+
+##### National Aeronautics & Space Administration (NASA) - Johnson Space Center
+* Developing biostatistical methods to simulate experimental studies on radiation-associated cancer risk
+
+##### Hospital del Mar Medical Research Institute Foundation (IMIM)
+* Utilized regression methods to develop effective model selection strategies and identify influential associations between exposure to environmental pollutants and COVID-19 disease
+ 
+##### John Snow Inc
+* Provided support on various local, state, and national projects working towards health equity
+
+##### California Primary Care Association
+* Spearheaded anti-human trafficking efforts by conducting interviews, developing relationships with experts, and crafting recommendations through careful examination of the healthcare landscape
+

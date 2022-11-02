@@ -1,0 +1,19 @@
+---
+title: "Sneha Mehta"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+<img src="Image.jpg" style="width:35%">
+
+Hiya! I'm a biostats nerd just trying to survive grad school so I can do cool stuff some day.
+
+Let me show you about me.
+
+
+
+
+
+
