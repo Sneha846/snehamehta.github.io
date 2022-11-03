@@ -17,14 +17,15 @@ library(plotly)
 data("ny_noaa")
 
 noaa = ny_noaa %>% 
-  separate(date, into = c("year", "month", "day"), sep = "-", convert = TRUE) %>% 
+  mutate(date2 = date) %>% 
+  separate(date2, into = c("year", "month", "day"), sep = "-", convert = TRUE) %>% 
   mutate(tmax = as.numeric(tmax)/10, 
          tmin = as.numeric(tmin)/10,
          prcp = prcp/10) %>% 
   sample_n(10000)
 
 #years with top 5 highest temps vs years with top 5 lowest temps
-#highest snowdepth
+
 ```
 
 ## Plotly Plots
@@ -37,5 +38,13 @@ noaa %>%
 ```
 
 ### Barplot
+```{r}
+noaa %>% 
+  mutate(text_label2 = str_c("Date:", date, "\nLocation ID:", id)) %>% 
+  plot_ly(x = ~year, y = ~snwd, color = ~month, text = ~text_label2, type = "bar") %>% 
+  layout(title = 'Snow Depth by Year', 
+         xaxis = list(title = 'Year'), 
+         yaxis = list(title = 'Snow Depth (mm)'))
+```
 
 

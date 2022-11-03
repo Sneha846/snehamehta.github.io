@@ -1,0 +1,66 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(p8105.datasets)
+library(tidyverse)
+library(plotly)
+```
+
+## Loading Data
+```{r}
+data("ny_noaa")
+
+noaa = ny_noaa %>% 
+  separate(date, into = c("year", "month", "day"), sep = "-", convert = TRUE) %>% 
+  mutate(tmax = as.numeric(tmax)/10, 
+         tmin = as.numeric(tmin)/10,
+         prcp = prcp/10) %>% 
+  sample_n(10000)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+noaa %>%
+  plot_ly(x = ~year, y = ~snwd, color = ~month, text = ~date, type = "bar", mode = "markers") %>% 
+  layout(title = 'Snow Depth by Year', 
+         xaxis = list(title = 'Year'), 
+         yaxis = list(title = 'Snow Depth (mm)'))
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+noaa %>% 
+  mutate(text_label = str_c("Station ID:", id)) %>% 
+  plot_ly(x = ~tmin, y = ~tmax, color = ~year, text = ~text_label, alpha = 0.5, type = "scatter", mode = "markers") %>% 
+  layout(title = 'Maximum and Minimum Temperatures', 
+         xaxis = list(title = 'Min Temp (C)'), 
+         yaxis = list(title = 'Max Temp (C)'))
+```
+
+### Chart C
+
+```{r}
+noaa %>%
+  mutate(year = as.factor(year)) %>% 
+  plot_ly(y = ~prcp, color = ~year, type = "box", colors = "viridis") %>% 
+  layout(title = 'Precipitation by Year', 
+         xaxis = list(title = 'Year'), 
+         yaxis = list(title = 'Precipitation (mm)'))
+```
+

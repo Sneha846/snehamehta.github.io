@@ -12,7 +12,7 @@ Hiya! I'm a biostats nerd just trying to survive grad school so I can do cool st
 
 Let me show you about me.
 
-
+Here's a direct link to my [experience](Experience.html).
 
 
 
